@@ -1,361 +1,112 @@
-* {
+.product {
+    background-color: #fef9c3;
+    margin: 10px 0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
-.container {
-    display: grid;
-    grid-template-rows: 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 7% 7% 7% 7%;
-    grid-template-columns: 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 6% 7% 7% 7% 7%;
-    width: 100%;
-    height: 100%;
-    grid-template-areas: 
-     "a a a a b b b b b b b b c c d d"
-     "a a a a b b b b b b b b c c d d"
-     "a a a a e e e e f f f f c c d d"
-     "a a a a e e e e f f f f c c d d"
-     "a a a a e e e e f f f f c c h g"
-     "i i j j j j j j f f f f c c h g"
-     "i i j j j j j j f f f f c c h g"
-     "i i j j j j j j f f f f c c h g"
-     "i i q q q k k k f f f f c c h g"
-     "i i q q q k k k f f f f c c h g"
-     "i i q q q k k k f f f f c c h g"
-     "i i q q q k k k f f f f l l l l"
-     "m m m m m m m m n n n n l l l l"
-     "m m m m m m m m n n n n l l l l"
-     "m m m m m m m m n n n n o o p p"
-     "m m m m m m m m n n n n o o p p";
+#main_wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+}
+
+#product_list, #cart {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #ff6f61;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#product_list:hover, #cart:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 
-.a {
-    grid-area: a;
-    background-color: white;
-}
-.b {
-    grid-area: b;
-    background-color: white;
-}
-.c {
-    grid-area: c;
-    background-color: white;
-}
-.d {
-    grid-area: d;
-    background-color: white;
-}
-.e {
-    grid-area: e;
-    background-color: white;
+.product:hover {
+    background-color: #ffe066;
+    transform: scale(1.05);
 }
 
-.f {
-    grid-area: f;
-    background-color: white;
-}
-.g {
-    grid-area: g;
-    background-color: white;
-}
-.h {
-    grid-area: h;
-    background-color: white;
-}
-.i {
-    grid-area: i;
-    background-color: white;
-}
-.j {
-    grid-area: j;
-    background-color: white;
-}
-.k {
-    grid-area: k;
-    background-color: white;
-}
-.l {
-    grid-area: l;
-    background-color: white;
-}
-.m {
-    grid-area: m;
-    background-color: white;
-}
-.n {
-    grid-area: n;
-    background-color: white;
-}
-.o {
-    grid-area: o;
-    background-color: white;
-}
-.p {
-    grid-area: p;
-    background-color: white;
-}
-.q {
-    grid-area: q;
-    background-color: white;
+.cart_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #ffdde1, #ee9ca7);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    animation: slideIn 0.5s ease-in-out;
 }
 
-.a img:hover{
-    opacity: 0.5;
+.cart-item-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+button {
+    background-color: #ff6f61;
+    border: none;
+    padding: 8px 12px;
     cursor: pointer;
-    transform: scale(1.2); 
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.a div{
-    height: 100%;
-    overflow: hidden;
-}
-.a img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+button:hover {
+    background-color: #d94f3d;
+    transform: scale(1.1);
 }
 
-.b img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
+.item-count {
+    margin-left: 10px;
+    font-weight: bold;
 }
 
-.b div{
-    height: 100%;
-    overflow: hidden;
-}
-.b img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.c img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.c div{
-    height: 100%;
-    overflow: hidden;
-}
-.c img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.d img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.d div{
-    height: 100%;
-    overflow: hidden;
-}
-.d img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.e img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.e div{
-    height: 100%;
-    overflow: hidden;
-}
-.e img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.f img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.f div{
-    height: 100%;
-    overflow: hidden;
-}
-.f img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.g img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.g div{
-    height: 100%;
-    overflow: hidden;
-}
-.g img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.h img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.h div{
-    height: 100%;
-    overflow: hidden;
-}
-.h img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.i img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.i div{
-    height: 100%;
-    overflow: hidden;
-}
-.i img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.j img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.j div{
-    height: 100%;
-    overflow: hidden;
-}
-.j img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.k img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.k div{
-    height: 100%;
-    overflow: hidden;
-}
-.k img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.l img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.l div{
-    height: 100%;
-    overflow: hidden;
-}
-.l img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.m img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.m div{
-    height: 100%;
-    overflow: hidden;
-}
-.m img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.n img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.n div{
-    height: 100%;
-    overflow: hidden;
-}
-.n img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.o img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.o div{
-    height: 100%;
-    overflow: hidden;
-}
-.o img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.p img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.p div{
-    height: 100%;
-    overflow: hidden;
-}
-.p img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.q img:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    transform: scale(1.2); 
-}
-
-.q div{
-    height: 100%;
-    overflow: hidden;
-}
-.q img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.cart_item {
+    animation: slideIn 0.5s ease-in-out;
 }
